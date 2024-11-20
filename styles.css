@@ -1,0 +1,88 @@
+:root {
+    --grid-color: #2c3e50;
+    --background: #ecf0f1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+    font-family: 'Arial', sans-serif;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1;
+    padding: 20px;
+}
+
+.board {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.grid-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.grid-lines::before,
+.grid-lines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: var(--grid-color);
+}
+
+.grid-lines::before {
+    left: 33.33%;
+}
+
+.grid-lines::after {
+    right: 33.33%;
+}
+
+.grid-lines .horizontal {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--grid-color);
+}
+
+.grid-lines .horizontal:nth-child(1) {
+    top: 33.33%;
+}
+
+.grid-lines .horizontal:nth-child(2) {
+    top: 66.66%;
+}
+
+.cells {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    height: 100%;
+}
+
+.cell {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
